@@ -12,6 +12,6 @@ for ii=1:N
     end
 end
 transfer_mat = cov^(1/2);
-fout = fopen(sprintf('cov_1_2_corr_para%.2f_len%d.dat', eta, N),'wb');
+fout = fopen(sprintf('cov_1_2_corr_para%.2f.dat', eta),'wb');
 fwrite(fout, transfer_mat, 'single');
 fclose(fout);
