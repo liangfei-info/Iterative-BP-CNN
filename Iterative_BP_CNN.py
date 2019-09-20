@@ -185,6 +185,18 @@ def simulation_colored_noise(linear_code, top_config, net_config, simutimes_rang
 
 
 def generate_noise_samples(linear_code, top_config, net_config, train_config, bp_iter_num, net_id_data_for, generate_data_for, noise_io, model_id):
+    """
+    :param linear_code: 
+    :param top_config: 
+    :param net_config: 
+    :param train_config: 
+    :param bp_iter_num: 
+    :param net_id_data_for: 
+    :param generate_data_for: 
+    :param noise_io: 
+    :param model_id: 
+    :return: 
+    """
 # net_id_data_for: the id of the CNN network this function generates data for. Start from zero.
 # model_id is to designate the specific model folder
     G_matrix = linear_code.G_matrix

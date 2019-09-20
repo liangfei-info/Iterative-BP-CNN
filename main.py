@@ -25,11 +25,14 @@ top_config.parse_cmd_line(sys.argv)
 train_config = Configrations.TrainingConfig(top_config)
 net_config = Configrations.NetConfig(top_config)
 
+# (n,k)线性分组码，G:生成矩阵，H:校验矩阵，n是
 code = lbc.LDPC(top_config.N_code, top_config.K_code, top_config.file_G, top_config.file_H)
 
 if top_config.function == 'GenData':
-    noise_io = DataIO.NoiseIO(top_config.N_code, False, None, top_config.cov_1_2_file)
+    # 定义一个噪声生成器
+    noise_io = DataIO.NoiseIO(top_config.N_code, False, None, top_config.cov_1_2_file) # top_config.cov_1_2_file = Noise/cov_1_2_corr_para_0.5.dat
     # generate training data
+
     ibd.generate_noise_samples(code, top_config, net_config, train_config, top_config.BP_iter_nums_gen_data,
                                                   top_config.currently_trained_net_id, 'Training', noise_io, top_config.model_id)
     # generate test data
